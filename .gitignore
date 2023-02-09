@@ -1,0 +1,5 @@
+/Android/build
+/Android/.idea/
+/Android/gradle/
+/Android/.gradle/
+/Android/key.jks

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Classes{% endblock %}
+
+{% block content %}
+	<fieldset class="tablePadding">
+	<h5>Classes</h5>
+	<table class="customTable">
+		<thead>
+			<tr>
+				<th>Class</th>
+				<th>Teacher</th>
+				<th colspan="2" class="sorter-false"></th>
+			</tr>
+		</thead>
+		<tbody class="table-hover">
+			{% for (cls, t) in classList.items() %}
+				<tr>
+					<td class="wide">{{ cls.name }}</td>
+					<td>{{ t.name }}</td>
+					<td>
+						<form action="{{ url_for('classes.edit') }}" method="post">
+							<input class="edit" type="submit" value="Edit" name="submit" />
+							<input class="invisible" name="id" value="{{ cls.id }}">
+							<input class="invisible" name="save" value="false">
+						</form>
+					</td>
+					<td>
+						<form action="{{ url_for('classes.delete') }}" method="post">
+							<input class="delete" type="submit" value="Remove" name="submit" />
+							<input class="invisible" name="id" value="{{ cls.id }}">
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+		<form action="{{ url_for('classes.new') }}" method="get">
+			<input class="edit new" type="submit" value="Add new" />
+		</form>
+	</fieldset>
+	<script>
+		$(document).ready(function()
+		{ 
+			$(".customTable").tablesorter({
+				sortList:[[0,0]],
+			});
+		});
+	</script>
+{% endblock %}

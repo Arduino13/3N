@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/take_photo_vocabulary"
+        android:icon="@drawable/ic_camera"
+        app:showAsAction="always"
+        android:title="Ich bin ein gamer"
+        />
+    <item
+        android:id="@+id/remove_vocabulary_list"
+        android:icon="@drawable/ic_action_delete"
+        app:showAsAction="always"
+        android:title="Ich bin ein gamer" />
+    <item
+        android:id="@+id/cancel_vocabulary_list"
+        android:icon="@drawable/ic_action_cancel"
+        app:showAsAction="always"
+        android:title="Ich bin ein gamer" />
+</menu>

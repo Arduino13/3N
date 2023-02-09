@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Administrator edit{% endblock %}
+
+{% block content %}
+	<form method="post">
+		<fieldset class="tablePadding">
+			<h5 style="margin-bottom: 0px">Administrator</h5>
+			<div class="help">
+				Administrator edit
+			</div>
+
+			<label class="form_label" for="name">Name:</label>
+			<input class="form_input" name="name" id="name" value="{{ admin.name  }}" required>
+			<div class="cleaner"></div>
+
+			<label class="form_label" for="password">Password:</label>
+			<form action="{{ url_for('students.chgPass') }}" method="post">
+				<input class="chgPass" type="submit" value="Password reset">
+			</form>
+			<div class="cleaner"></div>
+
+			<input class="invisible" name="save" id="save" value="true">
+			<input class="invisible" name="id" id="id" value="{{ admin.id }}">
+
+			<input class="edit new" type="submit" value="Save">
+		</fieldset>
+	</form>
+{% endblock %}

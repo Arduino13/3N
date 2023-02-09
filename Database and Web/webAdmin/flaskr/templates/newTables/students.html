@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}New student{% endblock %}
+
+{% block content %}
+	<form method="post">
+		<fieldset class="tablePadding">
+			<h5 style="margin-bottom: 0px">New student</h5>
+			<div class="help">
+				New student
+			</div>
+
+			<label class="form_label" for="name">Name:</label>
+			<input class="form_input" name="name" id="name" required>
+			<div class="cleaner"></div>
+
+			<label class="form_label" for="email">Email:</label>
+			<input class="form_input" name="email" id="email" required>
+			<div class="cleaner"></div>
+
+			<input class="invisible" name="save" id="save" value="true">
+
+			<input class="edit new" type="submit" value="Save">
+		</fieldset>
+	</form>
+{% endblock %}

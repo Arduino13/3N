@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/testScreen">
+    <fragment
+        android:id="@+id/testScreen"
+        android:name="com.example.vocab.test.TestFragment"
+        android:label="TestFragment">
+        <action
+            android:id="@+id/action_testFragment2_to_webFragment2"
+            app:destination="@id/page_2" />
+        <action
+            android:id="@+id/toHomePageTeacher"
+            app:destination="@id/page_1_teacher" />
+        <action
+            android:id="@+id/toTestList"
+            app:destination="@id/testListFragment" />
+        <action
+            android:id="@+id/toRankList"
+            app:destination="@id/rankListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/page_2"
+        android:name="com.example.vocab.webPages.WebFragment"
+        android:label="fragment_web_list"
+        tools:layout="@layout/fragment_web_list">
+        <action
+            android:id="@+id/openWeb"
+            app:destination="@id/webView"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+        <action
+            android:id="@+id/webList"
+            app:destination="@id/webListItems"
+            app:enterAnim="@anim/slide_right"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_left" />
+        <action
+            android:id="@+id/action_page_2_to_vocabularyFragment"
+            app:destination="@id/page_3" />
+    </fragment>
+    <fragment
+        android:id="@+id/webView"
+        android:name="com.example.vocab.webPages.WebView"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" />
+    <fragment
+        android:id="@+id/webListItems"
+        android:name="com.example.vocab.webPages.WebListItems"
+        android:label="fragment_web_list_items"
+        tools:layout="@layout/fragment_web_list_items">
+        <action
+            android:id="@+id/addWebItem"
+            app:destination="@id/webAddItem"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+    </fragment>
+    <fragment
+        android:id="@+id/webAddItem"
+        android:name="com.example.vocab.webPages.WebAddItem"
+        android:label="fragment_web_add_item"
+        tools:layout="@layout/fragment_web_add_item" />
+    <fragment
+        android:id="@+id/page_3"
+        android:name="com.example.vocab.studentVocabulary.StudentVocabularyFragment"
+        android:label="fragment_vocabulary">
+        <action
+            android:id="@+id/toVocabularyList"
+            app:destination="@id/vocabularyListWords"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+        <action
+            android:id="@+id/toNewList"
+            app:destination="@id/vocabularyAddListWords"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+        <action
+            android:id="@+id/action_page_3_to_homeworkFragment"
+            app:destination="@id/page_4" />
+    </fragment>
+    <fragment
+        android:id="@+id/vocabularyListWords"
+        android:name="com.example.vocab.studentVocabulary.StudentVocabularyListWords"
+        android:label="fragment_vocabulary_list_words">
+        <action
+            android:id="@+id/toNewWord"
+            app:destination="@id/vocabularyAddWord"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+    </fragment>
+    <fragment
+        android:id="@+id/vocabularyAddListWords"
+        android:name="com.example.vocab.studentVocabulary.StudentVocabularyAddListWords"
+        android:label="fragment_vocabulary_add_list_words">
+        <action
+            android:id="@+id/toNewWord"
+            app:destination="@id/vocabularyAddWord"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+    </fragment>
+    <fragment
+        android:id="@+id/vocabularyAddWord"
+        android:name="com.example.vocab.studentVocabulary.StudentVocabularyAddWord"
+        android:label="fragment_vocabulary_add_word" />
+    <fragment
+        android:id="@+id/page_4"
+        android:name="com.example.vocab.homework.HomeworkFragment"
+        android:label="fragment_homework"
+        tools:layout="@layout/fragment_homework">
+        <action
+            android:id="@+id/toHomeworkDescription"
+            app:destination="@id/homeworkDescription"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+        <action
+            android:id="@+id/action_page_4_to_settingFragment"
+            app:destination="@id/page_5" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeworkDescription"
+        android:name="com.example.vocab.studentHomework.HomeworkDescription"
+        android:label="fragment_homework_description"
+        tools:layout="@layout/fragment_homework_description" />
+    <fragment
+        android:id="@+id/page_5"
+        android:name="com.example.vocab.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/toLanguageList"
+            app:destination="@id/settingListLanguagesFragment"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingListLanguagesFragment"
+        android:name="com.example.vocab.setting.SettingListLanguagesFragment"
+        android:label="fragment_setting_list_languages"
+        tools:layout="@layout/fragment_setting_list_languages" />
+    <fragment
+        android:id="@+id/page_1_teacher"
+        android:name="com.example.vocab.teacherHome.TeacherHomeFragment"
+        android:label="TeacherHomeFragment">
+        <action
+            android:id="@+id/toHomeworkDescriptionTeacher"
+            app:destination="@id/teacherHomeworkDescription"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+        <action
+            android:id="@+id/toAddHomework"
+            app:destination="@id/teacherHomeworkAdd"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+        <action
+            android:id="@+id/action_page_1_teacher_to_teacherVocabularyFragment"
+            app:destination="@id/page_2_teacher" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherHomeworkDescription"
+        android:name="com.example.vocab.teacherHome.TeacherHomeworkDescription"
+        android:label="fragment_teacher_homework_description"
+        tools:layout="@layout/fragment_teacher_homework_description" />
+    <fragment
+        android:id="@+id/teacherHomeworkAdd"
+        android:name="com.example.vocab.teacherHome.TeacherHomeworkAdd"
+        android:label="fragment_teacher_homework_add"
+        tools:layout="@layout/fragment_teacher_homework_add">
+        <action
+            android:id="@+id/toHomeworkChooseWords"
+            app:destination="@id/teacherHomeworkAddWords" />
+    </fragment>
+    <fragment
+        android:id="@+id/page_2_teacher"
+        android:name="com.example.vocab.teacherVocabulary.TeacherVocabularyFragment"
+        android:label="TeacherVocabularyFragment">
+        <action
+            android:id="@+id/toWordListTeacher"
+            app:destination="@id/teacherVocabularyListWords"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+        <action
+            android:id="@+id/toNewListTeacher"
+            app:destination="@id/teacherVocabularyAddListWords"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+        <action
+            android:id="@+id/action_page_2_teacher_to_page_3_teacher"
+            app:destination="@id/page_3_teacher" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherVocabularyListWords"
+        android:name="com.example.vocab.teacherVocabulary.TeacherVocabularyListWords"
+        android:label="TeacherVocabularyListWords">
+        <action
+            android:id="@+id/toNewWordTeacher"
+            app:destination="@id/teacherVocabularyAddWord"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherVocabularyAddListWords"
+        android:name="com.example.vocab.teacherVocabulary.TeacherVocabularyAddListWords"
+        android:label="TeacherVocabularyAddListWords">
+        <action
+            android:id="@+id/toNewWordTeacher"
+            app:destination="@id/teacherVocabularyAddWord"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherVocabularyAddWord"
+        android:name="com.example.vocab.teacherVocabulary.TeacherVocabularyAddWord"
+        android:label="TeacherVocabularyAddWord" />
+    <fragment
+        android:id="@+id/teacherHomeworkAddWords"
+        android:name="com.example.vocab.teacherHome.TeacherHomeworkAddWords"
+        android:label="fragment_teacher_homework_add_words"
+        tools:layout="@layout/fragment_teacher_homework_add_words" />
+    <fragment
+        android:id="@+id/page_3_teacher"
+        android:name="com.example.vocab.setting.TeacherSettingFragment"
+        android:label="fragment_teacher_setting"
+        tools:layout="@layout/fragment_teacher_setting">
+        <action
+            android:id="@+id/toLanguageList"
+            app:destination="@id/settingListLanguagesFragment"
+            app:enterAnim="@anim/slide_left_sec"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/slide_right_sec" />
+    </fragment>
+    <fragment
+        android:id="@+id/testListFragment"
+        android:name="com.example.vocab.test.TestListFragment"
+        android:label="fragment_test_list"
+        tools:layout="@layout/fragment_test_list" />
+    <fragment
+        android:id="@+id/rankListFragment"
+        android:name="com.example.vocab.test.RankListFragment"
+        android:label="fragment_rank_list"
+        tools:layout="@layout/fragment_rank_list" />
+</navigation>

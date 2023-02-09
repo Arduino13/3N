@@ -1,0 +1,174 @@
+body {
+	background: #fafafb;
+	font: 14px Verdana;
+}
+
+section {
+	margin: 85px 200px auto;
+	max-width: 960px;
+}
+
+header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #1c2228;
+	height:100%;
+	width: 200px;
+}
+
+h5 {
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 36px;
+	color: #0069d6;
+	margin: 0px auto 25px auto;
+}
+
+fieldset {
+	width: 100%;
+	max-width: 940px;
+
+	margin-bottom: 9px;
+
+	border: none;
+}
+
+nav a {
+	color: #D5DDE5;
+	text-decoration: none;
+}
+
+nav li{
+	margin: 15px 0px 15px 0px;
+	padding: 15px 0px 15px 40px;
+}
+
+nav ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+nav ul li:hover a{
+	color: white !important;
+}
+
+nav ul li:hover{
+	background: orange !important;
+}
+
+.flash{
+	color: red;
+	margin-top: 0px;
+	margin-bottom: 30px;
+	margin-left: 70px;
+}
+
+.tablePadding{
+	padding: 0px 0px 0px 70px;
+	max-width: 900px;
+}
+
+.chgPass{
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 14px;
+        background: #ff4141;;
+        float: left;
+        border: none;
+        color: #fff;
+        padding: 7px 10px;
+        margin-top: 0px;
+        margin-left: 20px;
+}
+
+
+.form_label {
+	width: 180px;
+
+	margin-bottom: 18px;
+	padding-top: 6px;
+	line-height: 18px;
+
+	text-align: right;
+	font-size: 13px;
+
+	color: #404040;
+
+	float: left;
+}
+
+.form_input {
+	width: 210px;
+	height: 30px;
+	padding: 4px;
+
+	font-size: 13px;
+	line-height: 18px;
+
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	box-sizing: border-box;
+
+	color: #808080;
+
+	margin-left: 20px;
+	margin-bottom: inherit;
+
+	display: inline-block;
+}
+
+.base_button {
+	padding: 10px 30px;
+	border-radius: 50px;
+
+	text-decoration: none;
+	font-size: 14px;
+
+	margin-top: 40px;
+	margin-right: 40px;
+
+	color: #fff;
+	background: #4ea0ff;
+
+	float: right;
+}
+
+.help{
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 18px;
+	margin-bottom: 30px;
+	color: #404040;
+}
+
+.cleaner{
+	clear: both;
+}
+
+#headerText{
+	width: 200px;
+	height: 50px;
+
+	margin: 0px 0px 60px 0px;
+	padding: 0px 0px 0px 40px;
+
+	font-size: 1em;
+	font-weight: normal;
+	color: white;
+	text-align: left;
+	text-shadow: 2px 2px 1px #0a294b;
+}
+
+#logout{
+	position: absolute;
+	bottom: 25px;
+	left: 50px;
+	border-radius: 2px;
+	background: #ff2f2f;
+	padding: 7px 10px;
+	color: #fff;
+	font-size: 15px;
+	border: none;
+}

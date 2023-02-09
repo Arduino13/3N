@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">Vocab</string>
+    <string name="test">Test</string>
+    <string name="web">Stránky</string>
+    <string name="vocab">Slovíčka</string>
+    <string name="homework">Úkoly</string>
+    <string name="settings">Nastavení</string>
+    <string name="home">Přehled</string>
+    <string name="words">Slovíčka</string>
+
+    <string name="title_activity_web_activity" translatable="false">WebActivityActivity</string>
+
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Heslo</string>
+
+    <string name="action_sign_in">"Přihlásit se"</string>
+
+    <string name="login_failed">"Nesprávné heslo nebo jméno"</string>
+    <string name="login_internet_failed">"Chyba připojení"</string>
+    <string name="login_failed_invalid_characters">"Nesprávný vstup"</string>
+
+    <string name="button_base_negative_no">Ne</string>
+    <string name="button_base_negative">Zpět</string>
+    <string name="button_base_positive">Ano</string>
+    <string name="button_base_save">Přidat</string>
+    <string name="button_base_save2">Uložit</string>
+    <string name="button_base_delete">Odstranit</string>
+
+    <string name="test_list">Seznamy</string>
+    <string name="rank_list">Žebříček</string>
+
+    <string name="wrong_name_error">Jméno nesmí obsahovat neplatné znaky</string>
+
+    <string name="webView_add_word_dialog_title">Přidání slova</string>
+    <string name="webView_add_word_dialog_question">Chcete přidat toto slovo?</string>
+
+    <string name="webView_list_name_label">Název</string>
+    <string name="webView_list_address_label">Adresa</string>
+    <string name="webView_wrong_address_error">Zadejte adresu ve tvaru www.stranka.domena</string>
+    <string name="webView_non_rss_address_error">Tato stránka není RSS proudem</string>
+    <string name="webView_list_title">Nová stránka</string>
+    <string name="webView_list_items_title">Seznam stránek</string>
+    <string name="webView_warning_label">Nemáte uloženy žádné stránky</string>
+
+    <string name="vocabulary_title">Přehled seznamů:</string>
+    <string name="vocabulary_button_title" translatable="false">+</string>
+    <string name="vocabulary_list_title">Seznam slov</string>
+    <string name="vocabulary_add_list_title">Přidání seznamu</string>
+    <string name="vocabulary_add_list_subtitle">Nový seznam</string>
+    <string name="vocabulary_add_word_from">Slovo</string>
+    <string name="vocabulary_add_word_to">Překlad</string>
+    <string name="vocabulary_add_list_subtitle2">Slova</string>
+    <string name="vocabulary_add_list_hint">Název seznamu</string>
+    <string name="vocabulary_new_word">Nové slovo</string>
+    <string name="vocabulary_new_word_hint_from">Slovo</string>
+    <string name="vocabulary_new_word_hint_to">Překlad</string>
+    <string name="vocabulary_no_words_error">Přidejte alespoň jedno slovo</string>
+    <string name="vocabulary_can_not_delete">Toto slovo nemůžete smazat</string>
+    <string name="vocabulary_word_already_exist">Toto slovo už existuje</string>
+
+    <string name="vocabulary_scanner_choose_source">Výběr obrázku</string>
+    <string name="vocabulary_scanner_choose_method">Výběr metody</string>
+    <string name="vocabulary_scanner_choose_words">Výběr slov</string>
+    <string name="vocabulary_scanner_results">Slova k přidání</string>
+    <string name="vocabulary_scanner_structured_text">Strukturovaný text</string>
+    <string name="vocabulary_scanner_unstructured_text">Nestrukturovaný text</string>
+    <string name="vocabulary_scanner_clear_button">Smazat</string>
+    <string name="vocabulary_scanner_next_button">Pokračovat</string>
+
+    <string name="vocabulary_camera_take_photo">Vyfotit</string>
+    <string name="vocabulary_camera_back">Zpět</string>
+
+    <string name="homework_from_date">Od: %1$s</string>
+    <string name="homework_to_date">Do: %1$s</string>
+    <string name="homework_until_date">Zbývá: %1$s dnů</string>
+    <string name="homework_completed">Dokončeno: %1$s</string>
+    <string name="homework_yes">Ano</string>
+    <string name="homework_no">Ne</string>
+    <string name="homework_error_after_date">Už je po datu odevzdání</string>
+    <string name="homework_words_to_learn">Slova k naučení</string>
+    <string name="homework_words_learned">Naučená slova</string>
+    <string name="homework_detail">Úkol</string>
+
+    <string name="homework_choose_wrong_words">Problematická slova</string>
+    <string name="homework_students">Žáci</string>
+    <string name="homework_students_word_ration" translatable="false">%1$d/%2$d</string>
+    <string name="homework_add_title">Nový úkol</string>
+    <string name="homework_add_hint">Jméno úkolu</string>
+    <string name="homework_add_date">Datum odevzdání</string>
+    <string name="homework_add_words">Slova</string>
+    <string name="homework_add_words_list">Přidané seznamy</string>
+    <string name="homework_add_words_words">Přidaná slova</string>
+    <string name="homework_delete_dialog_title">Odstranění úkolu</string>
+    <string name="homework_delete_dialog_question">Opravdu chcete smazat tento úkol?</string>
+    <string name="homework_add_choose_list">Seznamy slov</string>
+    <string name="homework_add_choose_word">Seznam slov</string>
+    <string name="homework_add_choose_date">Vyberte datum</string>
+    <string name="homework_add_warning">Přidejte aspoň jedno slovo</string>
+    <string name="homework_add_calendar_title">Datum odevzdání</string>
+
+    <string name="setting_language_tab">Seznam jazyků</string>
+    <string name="setting_theme">Vzhled</string>
+    <string name="setting_night_mode">Noční motiv</string>
+    <string name="setting_rss">RSS</string>
+    <string name="setting_max_number_of_pages">Max. článků</string>
+    <string name="setting_other">Různé</string>
+    <string name="setting_language_of_translator">Jazyk překladače</string>
+    <string name="setting_max_number_of_words">Max. počet slov</string>
+    <string name="setting_reverse_words">Obrátit překlad</string>
+    <string name="setting_log_out">Odhlásit se</string>
+    <string name="setting_change_password">Změnit heslo</string>
+    <string name="setting_log_out_title">Odhlášení</string>
+
+    <string name="test_button_result">Zkontrolovat</string>
+    <string name="test_is_correct_title">Je tento překlad správně?</string>
+    <string name="test_dialog_title">Přelož</string>
+    <string name="test_sentence_title">Poskládej slova</string>
+    <string name="test_result_overlay_yes">Správně</string>
+    <string name="test_result_overlay_no">Špatně</string>
+    <string name="test_result_correct_answer">Správná opdověd je: %1$s</string>
+    <string name="test_result_title">Výsledek</string>
+    <string name="test_result_success_rate">Úspěšnost: %1$d </string>
+    <string name="test_result_wrong_count">Počet chyb: %1$d</string>
+    <string name="test_result_continue_button">Pokračovat</string>
+    <string name="test_close_dialog_question">Opravdu chcete test ukončit?</string>
+    <string name="test_close_dialog_title">Zavření testu</string>
+    <string name="test_no_words">Nejsou žádná slova k otestování</string>
+
+    <string name="choose_class">Vyberte třídu</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_scanner" translatable="false">scannerActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
+
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+    <string name="translator_en">Angličtina</string>
+    <string name="translator_cz">Čeština</string>
+    <string name="translator_de">Němčina</string>
+    <string name="translator_es">Španělština</string>
+    <string name="translator_it">Italština</string>
+    <string name="translator_sk">Slovenština</string>
+    <string name="setting_log_out_question">Chcete se opravdu odhlásit?</string>
+    <string name="setting_app_language">Jazyk aplikace</string>
+</resources>

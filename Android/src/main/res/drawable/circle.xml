@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <stroke
+        android:name = "fade"
+        android:width="0.25dp"
+        android:color="#ab000d" />
+    <size
+        android:name = "scale"
+        android:width="12dp"
+        android:height="12dp" />
+</shape>

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Seznam učitelů{% endblock %}
+
+{% block content %}
+	<fieldset class="tablePadding">
+	<h5>Teachers</h5>
+	<table class="customTable">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Classes</th>
+				<th>Email</th>
+				<th colspan="2" class="sorter-false"></th>
+			</tr>
+		</thead>
+		<tbody class="table-hover">
+			{% for teacher in teacherList %}
+				<tr>
+					<td class="wide">{{ teacher.name }}</td>
+					<td>
+						{% for class in teacher.classes %}
+							{% if not class == teacher.classes[-1] %} 
+								{{ class.name }},
+							{% else %}
+								{{ class.name }}
+							{% endif %}
+						{% endfor %}
+					</td>
+					<td>{{ teacher.email }}</td>
+					<td>
+						<form action="{{ url_for('teachers.edit') }}" method="post">
+							<input class="edit" type="submit" value="Edit" name="submit" />
+							<input class="invisible" name="save" id="save" value="false">
+							<input class="invisible" name="id" id="id" value="{{ teacher.id }}">
+						</form>
+					</td>
+					<td>
+						<form action="{{ url_for('teachers.delete') }}" method="post">
+							<input class="delete" type="submit" value="Remove" name="submit" />
+							<input class="invisible" name="id" id="id" value="{{ teacher.id }}">
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<form action="{{ url_for('teachers.new') }}" method="get">
+			<input class="edit new" type="submit" value="Add new"  />
+		</form>
+	</fieldset>
+	<script>
+		$(document).ready(function()
+		{ 
+			$(".customTable").tablesorter({
+				sortList:[[0,0]],
+			});
+		});
+	</script>
+{% endblock %}

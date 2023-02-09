@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_scanner"
+    app:startDestination="@id/sourceSelectFragment">
+    <fragment
+        android:id="@+id/methodSelectFragment"
+        android:name="com.example.vocab.scanner.MethodSelectFragment"
+        android:label="fragment_source_select"
+        tools:layout="@layout/fragment_source_select" >
+        <action
+            android:id="@+id/toSelectWord"
+            app:destination="@id/wordsSelectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sourceSelectFragment"
+        android:name="com.example.vocab.scanner.SourceSelectFragment"
+        android:label="SourceSelectFragment" >
+        <action
+            android:id="@+id/toSelectMethod"
+            app:destination="@id/methodSelectFragment" />
+        <action
+            android:id="@+id/toSelectWord"
+            app:destination="@id/wordsSelectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordsSelectFragment"
+        android:name="com.example.vocab.scanner.WordsSelectFragment"
+        android:label="WordsSelectFragment" >
+        <action
+            android:id="@+id/toResults"
+            app:destination="@id/resultsFragment" />
+        <action
+            android:id="@+id/toStart"
+            app:destination="@id/sourceSelectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.vocab.scanner.ResultsFragment"
+        android:label="ResultsFragment" />
+</navigation>

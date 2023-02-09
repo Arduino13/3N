@@ -1,0 +1,128 @@
+import torch
+import torch.nn as nn
+import torchaudio
+import torch.utils.data as data
+import torch.optim as optim
+import torch.nn.functional as F
+import numpy as np
+import torch.utils.mobile_optimizer as mobile_optimizer
+import librosa
+
+from nnutils import *
+from speechModelPytorch import *
+
+freq_masking = torchaudio.transforms.FrequencyMasking(freq_mask_param=3)
+time_masking = torchaudio.transforms.TimeMasking(time_mask_param=10)
+sampler = torchaudio.transforms.Resample(48000, 16000) #only in case of commonVoice
+
+text_transform = TextTransform()
+
+def data_processing(data):
+    '''
+    Data preprocessing converting to mel scale, frequency and time masking,
+    converting labels to int arrays
+    '''
+    spectrograms = []
+    labels = []
+    input_lengths = []
+    label_lengths = []
+
+    for (waveform, _, utterance, _, _, _) in data: #in case of LibriSpeech
+    #for(waveform, sample_rate, dictionary) in data: #in case of commonVoice
+        #spec = sampler(waveform)
+        spec = waveform
+        spec = torch.from_numpy(
+            librosa.feature.melspectrogram(
+                y=spec.detach().numpy()[0],
+                sr=16000,
+                n_fft=512,
+                hop_length=256,
+                n_mels=161
+            )
+        )
+        spec = freq_masking(spec)
+        #spec = time_masking(spec)
+        spec = spec.squeeze(0).transpose(0,1)
+
+        spectrograms.append(spec)
+        
+        label = torch.Tensor(
+            text_transform.text_to_int(
+                #dictionary['sentence'].lower()
+                utterance.lower()
+            )
+        )
+        labels.append(label)
+
+        input_lengths.append(spec.shape[0])
+        label_lengths.append(len(label))
+
+    spectrograms = nn.utils.rnn.pad_sequence(
+        spectrograms, batch_first=True
+    ).unsqueeze(1).transpose(2,3)
+    labels = nn.utils.rnn.pad_sequence(
+        labels, batch_first=True
+    )
+
+    return spectrograms, labels, input_lengths, label_lengths
+
+def train(model, device, train_loader, criterion, optimizer, scheduler, epoch, iter_meter):
+    '''
+    Main training loop
+    '''
+    model.train()
+    data_len = len(train_loader.dataset)
+    for batch_idx, _data in enumerate(train_loader):
+        spectrograms, labels, input_lengths, label_lengths = _data
+        spectrograms, labels = spectrograms.to(device), labels.to(device)
+
+        optimizer.zero_grad()
+
+        output = model(spectrograms)
+        output = F.log_softmax(output, dim=2)
+        output = output.transpose(0, 1)
+
+        loss = criterion(output, labels, input_lengths, label_lengths)
+        loss.backward()
+
+        optimizer.step()
+        scheduler.step()
+        iter_meter.step()
+
+        #torch.nn.utils.clip_grad_value_(model.parameters(), 20)
+
+        if batch_idx % 100 == 0 or batch_idx == data_len:
+            print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
+                epoch, batch_idx * len(spectrograms), data_len,
+                100. * batch_idx / len(train_loader), loss.item()))
+
+#train_dataset = torchaudio.datasets.COMMONVOICE("/mnt/CommonVoice/cv-corpus-4-2019-12-10/en", url="english", download=False)
+train_dataset = torchaudio.datasets.LIBRISPEECH("/mnt/LibriSpeech/", url='train-clean-100', download=False)
+
+kwargs = {'num_workers':2, 'pin_memory': True}
+
+train_loader = data.DataLoader(dataset=train_dataset,
+                               batch_size=7,
+                               shuffle=True,
+                               collate_fn=lambda x: data_processing(x),
+                               **kwargs)
+model = SpeechModel().to('cuda')
+#model.load_state_dict(torch.load('/mnt/LibriSpeech/model.txt'), strict=False)
+
+epochs_num = 10
+lr_rate = 0.0002
+
+optimizer = optim.AdamW(model.parameters(), lr_rate)
+criterion = nn.CTCLoss(blank=28).to('cuda')
+scheduler = optim.lr_scheduler.OneCycleLR(optimizer, max_lr=lr_rate,
+                                        steps_per_epoch=int(len(train_loader)),
+                                        epochs=epochs_num,
+                                        anneal_strategy='linear')
+#using dynamic learning rate to prevent gradient explosion
+
+
+iter_meter = IterMeter()
+for epoch in range(1, epochs_num +1):
+    train(model, 'cuda', train_loader, criterion, optimizer, scheduler, epoch, iter_meter)
+    torch.save(model.state_dict(),'/mnt/LibriSpeech/model.txt')
+

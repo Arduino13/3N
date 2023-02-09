@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}New class{% endblock %}
+
+{% block content %}
+	<form method="post">
+		<fieldset class="tablePadding">
+			<h5 style="margin-bottom: 0px">Class</h5>
+			<div class="help">
+				New class
+			</div>
+
+			<label class="form_label" for="name">Name:</label>
+			<input class="form_input" name="name" id="name" required>
+			<div class="cleaner"></div>
+
+			<label class="form_label" for="teacher">Teacher:</label>
+			<select class="form_input" name="teacher" id="teacher">
+				{% for teacher in teacherList %}
+					<option value="{{ teacher.id }}">{{ teacher.name }}</option>
+				{% endfor %}
+			</select>
+			<div class="cleaner"></div>
+
+			<label class="form_label" for="student">Student</label>
+			<select class="form_input" id="studentSelect">
+				{% for student in studentList %}
+					<option value="{{ student.id }}">{{ student.name }}</option>
+				{% endfor %}
+			</select>
+			<input style="float: none; margin-left: 10px; margin-top: 0px;" class="edit new" type="button" onclick="addStudent()" value="Add" />
+			<div class="cleaner"></div>
+
+			<h5>Students</h5>
+			<table class="customTable">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody class="table-hover">
+				</tbody>
+			</table>
+
+			<input class="invisible" name="save" id="save" value="true">
+
+			<input class="edit new" type="submit" value="Save" />
+		</fieldset>
+	</form>
+	<script>
+		function addStudent(){
+			let studentID = $('#studentSelect').val();
+			let studentName = $('#studentSelect option:selected').text();
+
+			let items = $('#'+studentID).length
+			if(items == 0){
+				$('.table-hover').append('<tr id="'+studentID+'"></tr>');
+				$('#'+studentID).append('<td class="wide">'+studentName+'</td>', 
+						'<td><input class="delete" type="button" onclick="deleteStudent(' + "'" + studentID + "'" + ')" value="Odebrat" />',
+						'<input class="invisible" name="students[' + studentID +']" value="' +  studentID + '" /></td>');
+			}
+		}
+
+		function deleteStudent(id){
+			$('#'+id).remove();
+		}
+
+	</script>
+{% endblock %}

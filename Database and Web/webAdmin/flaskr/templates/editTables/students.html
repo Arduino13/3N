@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit student{% endblock %}
+
+{% block content %}
+	<fieldset class="tablePadding">
+		<form method="post" id="mainForm">
+			<h5 style="margin-bottom: 0px">Student</h5>
+			<div class="help">
+				Edit student
+			</div>
+
+			<label class="form_label" for="name">Name:</label>
+			<input class="form_input" name="name" id="name" value="{{ student.name  }}" required>
+			<div class="cleaner"></div>
+
+			<label class="form_label" for="email">Email:</label>
+			<input class="form_input" name="email" id="email" value="{{ student.email }}" required>
+			<div class="cleaner"></div>
+
+			<label class="form_label" for="class">Class:</label>
+			<input class="form_input" name="class" id="class" value="{{ student.Class.name }}" disabled>
+			<div class="cleaner"></div>
+
+
+			<input class="invisible" name="save" id="save" value="true">
+			<input class="invisible" name="id" id="id" value="{{ student.id }}">
+		</form>
+
+			<label class="form_label" for="password">Password:</label>
+			<form action="{{ url_for('students.chgPass') }}" method="post">
+				<input class="invisible" name="id" value="{{ student.id }}">
+				<input class="chgPass" type="submit" value="Password reset">
+			</form>
+			<div class="cleaner"></div>
+
+			<input class="edit new" type="submit" form="mainForm" value="Save">
+	</fieldset>
+{% endblock %}

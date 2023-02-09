@@ -1,0 +1,45 @@
+Starting a Gradle Daemon, 1 incompatible and 5 stopped Daemons could not be reused, use --status for details
+
+> Configure project :
+'kapt.generateStubs' is not used by the 'kotlin-kapt' plugin
+'kapt.generateStubs' is not used by the 'kotlin-kapt' plugin
+'kapt.generateStubs' is not used by the 'kotlin-kapt' plugin
+'kapt.generateStubs' is not used by the 'kotlin-kapt' plugin
+'kapt.generateStubs' is not used by the 'kotlin-kapt' plugin
+
+> Task :preBuild UP-TO-DATE
+> Task :preDebugBuild UP-TO-DATE
+> Task :compileDebugAidl NO-SOURCE
+> Task :generateDebugBuildConfig UP-TO-DATE
+> Task :compileDebugRenderscript NO-SOURCE
+> Task :prepareLintJar UP-TO-DATE
+> Task :prepareLintJarForPublish UP-TO-DATE
+> Task :generateDebugSources UP-TO-DATE
+> Task :dataBindingExportBuildInfoDebug UP-TO-DATE
+> Task :dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+> Task :dataBindingMergeGenClassesDebug UP-TO-DATE
+> Task :generateDebugResValues UP-TO-DATE
+> Task :generateDebugResources UP-TO-DATE
+> Task :mergeDebugResources UP-TO-DATE
+> Task :dataBindingGenBaseClassesDebug UP-TO-DATE
+> Task :dataBindingExportFeaturePackageIdsDebug UP-TO-DATE
+> Task :createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :extractDeepLinksDebug UP-TO-DATE
+> Task :processDebugManifest UP-TO-DATE
+> Task :processDebugResources UP-TO-DATE
+> Task :kaptGenerateStubsDebugKotlin UP-TO-DATE
+> Task :kaptDebugKotlin FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':kaptDebugKotlin'.
+> Kotlin could not find the required JDK tools in the Java installation 'C:\Program Files\Java\jre1.8.0_251' used by Gradle. Make sure Gradle is running on a JDK, not JRE.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 38s
+16 actionable tasks: 1 executed, 15 up-to-date

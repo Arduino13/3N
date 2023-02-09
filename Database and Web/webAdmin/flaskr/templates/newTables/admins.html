@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}New administartor{% endblock %}
+
+{% block content %}
+	<form method="post">
+		<fieldset class="tablePadding">
+			<h5 style="margin-bottom: 0px">New administrator</h5>
+			<div class="help">
+				New administrator
+			</div>
+
+			<label class="form_label" for="name">Name:</label>
+			<input class="form_input" name="name" id="name" required>
+			<div class="cleaner"></div>
+
+			<input class="invisible" name="save" id="save" value="true">
+
+			<input class="edit new" type="submit" value="Save">
+		</fieldset>
+	</form>
+{% endblock %}

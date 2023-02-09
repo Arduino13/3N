@@ -1,0 +1,98 @@
+.customTable {
+    background: white;
+    height: auto;
+    border-collapse: collapse;    
+    max-width: 900px;
+    margin: 40px 0px 0px 0px;
+    width: 100%;
+    box-shadow:0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+}
+
+.customTable th {
+    color:#D5DDE5;
+    background: #1D1C1C;
+    border-bottom:4px solid #9ea7af;
+    border-top: 1px solid #343a45;
+    font-size: 15px;
+    font-weight: 100;
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.customTable tr {
+    color:#565656;
+    font-size:14px;
+    text-align: left;
+}
+
+.customTable tr:hover td {
+    background:#cff2ff;
+}
+
+.customTable td {
+    background:#FFFFFF;
+    padding:13px;
+    text-align:left;
+    vertical-align:middle;
+    font-size:14px;
+    border: none;
+}
+
+.wide {
+  width: 300px;
+}
+
+.invisible{
+	display: none;
+}
+
+.edit{
+	background: #86B0F8;
+	border-radius: 10px;
+	padding: 7px 10px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 14px;
+	border: none;
+	margin: auto;
+}
+
+.edit.new{
+	background: #1E71FF;
+	margin-top: 50px;
+	border-radius: 5px;
+	float: right;
+}
+
+.delete{
+	background: #E62F2F;
+	border-radius: 10px;
+	padding: 7px 10px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 14px;
+	border: none;
+	margin: auto;
+}
+                                
+.customTable .tablesorter-header div {
+	background-image: url(pictures/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+.customTable .tablesorter-headerAsc div{
+	background-image: url(pictures/asc.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.customTable .tablesorter-headerDesc div{
+	background-image: url(pictures/desc.gif);
+	background-position: center right;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}          

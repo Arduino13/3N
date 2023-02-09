@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Students{% endblock %}
+
+{% block content %}
+	<fieldset class="tablePadding">
+	<h5>Students</h5>
+	<table class="customTable">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Class</th>
+				<th>Email</th>
+				<th colspan="2" class="sorter-false"></th>
+			</tr>
+		</thead>
+		<tbody class="table-hover">
+			{% for student in studentList %}
+				<tr>
+					<td class="wide">{{ student.name }}</td>
+					<td>{{ student.Class.name }}</td>
+					<td>{{ student.email }}</td>
+					<td>
+						<form action="{{ url_for('students.edit') }}" method="post">
+							<input class="edit" type="submit" value="Edit" name="submit" />
+							<input class="invisible" name="save" id="save" value="false">
+							<input class="invisible" name="id" id="id" value="{{ student.id }}">
+						</form>
+					</td>
+					<td>
+						<form action="{{ url_for('students.delete') }}" method="post">
+							<input class="delete" type="submit" value="Remove" name="submit" />
+							<input class="invisible" name="id" id="id" value="{{ student.id }}">
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<form action="{{ url_for('students.new') }}" method="get">
+			<input class="edit new" type="submit" value="Add new" />
+		</form>
+	</fieldset>
+	<script>
+		$(document).ready(function()
+		{ 
+			$(".customTable").tablesorter({
+				sortList:[[0,0]],
+			});
+		});
+	</script>
+{% endblock %}

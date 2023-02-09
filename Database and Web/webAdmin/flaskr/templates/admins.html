@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Administrators list{% endblock %}
+
+{% block content %}
+	<fieldset class="tablePadding">
+	<h5>Administrators list</h5>
+	<table class="customTable">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th colspan="2" class="sorter-false"></th>
+			</tr>
+		</thead>
+		<tbody class="table-hover">
+			{% for admin in adminList %}
+				<tr>
+					<td class="wide">{{ admin.name }}</td>
+					<td>
+						<form action="{{ url_for('admins.edit') }}" method="post">
+							<input class="edit" type="submit" value="Edit" name="submit" />
+							<input class="invisible" name="save" id="save" value="false">
+							<input class="invisible" name="id" id="id" value="{{ admin.id }}">
+						</form>
+					</td>
+					<td>
+						<form action="{{ url_for('admins.delete') }}" method="post">
+							<input class="delete" type="submit" value="Remove" name="submit" />
+							<input class="invisible" name="id" id="id" value="{{ admin.id}}">
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<form action="{{ url_for('admins.new') }}" method="get">
+			<input class="edit new" type="submit" value="Add new"  />
+		</form>
+	</fieldset>
+	<script>
+		$(document).ready(function()
+		{ 
+			$(".customTable").tablesorter({
+				sortList:[[0,0]],
+			});
+		});
+	</script>
+{% endblock %}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="com.example.vocab.setting.BaseLanguageCell.OnClickListener"
+            />
+        <variable
+            name="language"
+            type="String" />
+        <variable
+            name="stringID"
+            type="Integer" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:onClick="@{() -> clickListener.onClick(stringID)}">
+
+        <TextView
+            android:id="@+id/languageName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@{language}"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </FrameLayout>
+</layout>
